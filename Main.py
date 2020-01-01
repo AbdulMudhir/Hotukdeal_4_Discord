@@ -1,4 +1,4 @@
-from HotukdealV3.Hotukdeal.requests import Hud
+from Hotukdeal_4_Discord.Hotukdeal.requests import Hud
 from discord.ext import tasks
 import discord
 
@@ -31,6 +31,6 @@ class Bot(discord.Client):
 
 bot = Bot()
 
-bot.run('NjUzMjczNjU4MDUxMjY0NTIz.Xfpfkg.xgBC5tO0Qz5ahUZGh3VtsUF74jo')
+bot.run('Token here')
 
 
