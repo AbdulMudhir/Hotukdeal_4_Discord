@@ -168,21 +168,13 @@ async def on_ready():
             await self.channel.delete_messages(msg)
 
     homepage = Hotukdeal('https://www.hotukdeals.com/hot?page=', bot.get_channel(your_channel_id))
-    gaming = Hotukdeal('https://www.hotukdeals.com/tag/gaming?page=', bot.get_channel(your_channel_id))
-    electronics = Hotukdeal('https://www.hotukdeals.com/tag/electronics?page=', bot.get_channel(your_channel_id))
-    steam = Hotukdeal('https://www.hotukdeals.com/tag/steam-hot?page=', bot.get_channel(your_channel_id))
+
 
     @tasks.loop(seconds=3600)  # when to check for deals
     async def start_sending():
 
         await homepage._filter_inventory()
         homepage.deal_logs.clear()  # clearing deal logs to remove any outdated deals
-        await gaming._filter_inventory()
-        gaming.deal_logs.clear()  # clearing deal logs to remove any outdated deals
-        await electronics._filter_inventory()
-        electronics.deal_logs.clear()  # clearing deal logs to remove any outdated deals
-        await steam._filter_inventory()
-        steam.deal_logs.clear()  # clearing deal logs to remove any outdated deals
 
     start_sending.start()  # stat the loop
 
