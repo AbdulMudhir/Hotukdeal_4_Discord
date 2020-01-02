@@ -22,7 +22,7 @@ async def on_ready():
 
         async def get_multiple_deals(self):
 
-            for i in range(1,4): #number of pages to go through
+            for i in range(1, 4):  # number of pages to go through
 
                 link = f'{self.link}{i}'
 
@@ -134,13 +134,10 @@ async def on_ready():
                 if item in self.filtered_deals.keys():
                     continue
                 else:
-                    #print('Removed', item)
                     msg = await self.channel.fetch_message(message_id)
                     await msg.delete()
 
             await self.send_deals()
-            #self.deal_logs.clear()
-
 
         async def send_deals(self):
 
@@ -179,15 +176,15 @@ async def on_ready():
     async def start_sending():
 
         await homepage._filter_inventory()
-        homepage.deal_logs.clear() # clearing deal logs to remove any outdated deals
+        homepage.deal_logs.clear()  # clearing deal logs to remove any outdated deals
         await gaming._filter_inventory()
-        gaming.deal_logs.clear()# clearing deal logs to remove any outdated deals
+        gaming.deal_logs.clear()  # clearing deal logs to remove any outdated deals
         await electronics._filter_inventory()
-        electronics.deal_logs.clear()# clearing deal logs to remove any outdated deals
+        electronics.deal_logs.clear()  # clearing deal logs to remove any outdated deals
         await steam._filter_inventory()
-        steam.deal_logs.clear()# clearing deal logs to remove any outdated deals
+        steam.deal_logs.clear()  # clearing deal logs to remove any outdated deals
 
-    start_sending.start() #stat the loop
+    start_sending.start()  # stat the loop
 
 
 bot.run('Your Token')
